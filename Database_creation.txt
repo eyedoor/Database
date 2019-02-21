@@ -1,0 +1,62 @@
+CREATE DATABASE eyedoor_database;
+
+CREATE TABLE User
+(
+	UserID int,
+	UserEmail varchar(255),
+	UserPassword varchar(255),
+	UserFirst varchar(255),
+	UserLast varchar(255),
+	LastActivation smalldatetime,
+	DeviceID int,
+	PRIMARY KEY (UserID),
+	FOREIGN KEY (DeviceID) REFERENCES Device(DeviceID)
+);
+
+CREATE TABLE Event
+(
+	EventID int,
+	FilePath varchar(255),
+	Timesent smalldatetime,
+	UserID int,
+	PRIMARY KEY (EventID),
+	FOREIGN KEY (UserID) REFERENCES User(UserID)
+);
+
+CREATE TABLE Device
+(
+	DeviceID int,
+	DeviceType varchar(255),
+	UserID int,
+	PRIMARY KEY (DeviceID),
+	FOREIGN KEY (UserID) REFERENCES User(UserID)
+);
+
+CREATE TABLE Connection
+(
+	ConnectionID int,
+	ConnectionType varchar(255),
+	NotificationID int,
+	UserID int,
+	PRIMARY KEY (ConnectionID),
+	FOREIGN KEY (UserID) REFERENCES User(UserID)
+);
+
+CREATE TABLE Friends
+(
+	FriendID int,
+	FriendFirst varchar(255),
+	FriendLast varchar(255),
+	UserID int,
+	PRIMARY KEY (FriendID),
+	FOREIGN KEY (UserID) REFERENCES User(UserID)
+);
+
+CREATE TABLE FriendImage
+(
+	FriendImageID int,
+	FilePath varchar(255),
+	FriendID int,
+	PRIMARY KEY (FriendImageID),
+	FOREIGN KEY (FriendID) REFERENCES Friends(FriendID)
+);
