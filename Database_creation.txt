@@ -2,22 +2,33 @@ CREATE DATABASE eyedoor_database;
 
 CREATE TABLE User
 (
-	UserID int,
-	UserEmail varchar(255),
-	UserPassword varchar(255),
-	UserFirst varchar(255),
-	UserLast varchar(255),
-	LastActivation smalldatetime,
+	UserID int NOT NULL AUTO_INCREMENT UNIQUE,
+	Email varchar(255) NOT NULL,
+	Password varchar(255) NOT NULL,
+	Firstname varchar(255) NOT NULL,
+	Lastname varchar(255) NOT NULL,
+	LastActivation datetime,
+	HasSubUser boolean,
+	HasParent boolean,
+	NotificationID varchar(255) UNIQUE,
 	DeviceID int,
 	PRIMARY KEY (UserID),
 	FOREIGN KEY (DeviceID) REFERENCES Device(DeviceID)
 );
 
+CREATE TABLE SubUser
+(
+	ParentUserID int,
+	SubUserID int,
+	FOREIGN KEY (ParentUserID) REFERENCES User(UserID),
+	FOREIGN KEY (SubUserID) REFERENCES User(UserID)
+);
+
 CREATE TABLE Event
 (
-	EventID int,
+	EventID int NOT NULL AUTO_INCREMENT UNIQUE,
 	FilePath varchar(255),
-	Timesent smalldatetime,
+	Timesent datetime,
 	UserID int,
 	PRIMARY KEY (EventID),
 	FOREIGN KEY (UserID) REFERENCES User(UserID)
@@ -25,26 +36,15 @@ CREATE TABLE Event
 
 CREATE TABLE Device
 (
-	DeviceID int,
-	DeviceType varchar(255),
+	DeviceID int NOT NULL UNIQUE,
 	UserID int,
 	PRIMARY KEY (DeviceID),
 	FOREIGN KEY (UserID) REFERENCES User(UserID)
 );
 
-CREATE TABLE Connection
-(
-	ConnectionID int,
-	ConnectionType varchar(255),
-	NotificationID int,
-	UserID int,
-	PRIMARY KEY (ConnectionID),
-	FOREIGN KEY (UserID) REFERENCES User(UserID)
-);
-
 CREATE TABLE Friends
 (
-	FriendID int,
+	FriendID int NOT NULL AUTO_INCREMENT UNIQUE,
 	FriendFirst varchar(255),
 	FriendLast varchar(255),
 	UserID int,
@@ -54,7 +54,7 @@ CREATE TABLE Friends
 
 CREATE TABLE FriendImage
 (
-	FriendImageID int,
+	FriendImageID int NOT NULL AUTO_INCREMENT UNIQUE,
 	FilePath varchar(255),
 	FriendID int,
 	PRIMARY KEY (FriendImageID),
