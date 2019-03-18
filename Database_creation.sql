@@ -10,8 +10,7 @@ CREATE TABLE User
 	HasParent boolean,
 	NotificationID varchar(255) UNIQUE,
 	DeviceID int,
-	PRIMARY KEY (UserID),
-	FOREIGN KEY (DeviceID) REFERENCES Device(DeviceID)
+	PRIMARY KEY (UserID)
 );
 
 CREATE TABLE SubUser
@@ -58,3 +57,5 @@ CREATE TABLE FriendImage
 	PRIMARY KEY (FriendImageID),
 	FOREIGN KEY (FriendID) REFERENCES Friends(FriendID)
 );
+
+ALTER TABLE User ADD FOREIGN KEY (DeviceID) REFERENCES Device(DeviceID);
