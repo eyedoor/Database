@@ -1,3 +1,9 @@
+CREATE TABLE Device
+(
+	DeviceID int NOT NULL UNIQUE,
+	PRIMARY KEY (DeviceID)
+);
+
 CREATE TABLE User
 (
 	UserID int NOT NULL AUTO_INCREMENT UNIQUE,
@@ -5,9 +11,9 @@ CREATE TABLE User
 	Password varchar(255) NOT NULL,
 	Firstname varchar(255) NOT NULL,
 	Lastname varchar(255) NOT NULL,
-	LastActivation datetime,
-	HasSubUser boolean,
-	HasParent boolean,
+	LastActivation datetime DEFAULT NULL,
+	HasSubUser boolean DEFAULT FALSE,
+	HasParent boolean DEFAULT FALSE,
 	NotificationID varchar(255) UNIQUE,
 	DeviceID int,
 	PRIMARY KEY (UserID)
@@ -28,14 +34,6 @@ CREATE TABLE Event
 	Timesent datetime,
 	UserID int,
 	PRIMARY KEY (EventID),
-	FOREIGN KEY (UserID) REFERENCES User(UserID)
-);
-
-CREATE TABLE Device
-(
-	DeviceID int NOT NULL UNIQUE,
-	UserID int,
-	PRIMARY KEY (DeviceID),
 	FOREIGN KEY (UserID) REFERENCES User(UserID)
 );
 
