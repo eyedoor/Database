@@ -1,3 +1,5 @@
+Drop TABLE IF EXISTS FriendEvent, FriendImage, Friends, Event, SubUser, User, Device;
+
 CREATE TABLE Device
 (
 	DeviceID int NOT NULL UNIQUE,
@@ -11,7 +13,7 @@ CREATE TABLE User
 	Password varchar(255) NOT NULL,
 	Firstname varchar(255) NOT NULL,
 	Lastname varchar(255) NOT NULL,
-	LastActivation datetime DEFAULT NULL,
+	LastActivation datetime,
 	HasSubUser boolean DEFAULT FALSE,
 	HasParent boolean DEFAULT FALSE,
 	NotificationID varchar(255) UNIQUE,
@@ -53,6 +55,14 @@ CREATE TABLE FriendImage
 	FilePath varchar(255),
 	FriendID int,
 	PRIMARY KEY (FriendImageID),
+	FOREIGN KEY (FriendID) REFERENCES Friends(FriendID)
+);
+
+CREATE TABLE FriendEvent
+(
+	EventID int,
+	FriendID int,
+	FOREIGN KEY (EventID) REFERENCES Event(EventID),
 	FOREIGN KEY (FriendID) REFERENCES Friends(FriendID)
 );
 
