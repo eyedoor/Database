@@ -11,11 +11,11 @@ CREATE TABLE Friends
 );
 */
 
-INSERT INTO table_name
+INSERT INTO Friends
 VALUES (1, "FFNAME1", "FLNAME1", 100);
 
-INSERT INTO table_name
+INSERT INTO Friends
 VALUES (2, "FFNAME2", "FLNAME2", 100);
 
-INSERT INTO table_name
+INSERT INTO Friends
 VALUES (3, "FFNAME3", "FLNAME3", 100);

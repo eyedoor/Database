@@ -10,11 +10,11 @@ CREATE TABLE FriendImage
 );
 */
 
-INSERT INTO table_name
+INSERT INTO FriendImage
 VALUES (1, "path1", 1);
 
-INSERT INTO table_name
+INSERT INTO FriendImage
 VALUES (2, "path2", 1);
 
-INSERT INTO table_name
+INSERT INTO FriendImage
 VALUES (3, "path3", 2);

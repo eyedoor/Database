@@ -11,11 +11,11 @@ CREATE TABLE Event
 );
 */
 
-INSERT INTO table_name
-VALUES (10, "path10", NULL, 100);
+INSERT INTO Event
+VALUES (1, "path10", NULL, 100);
 
-INSERT INTO table_name
-VALUES (20, "path20", NULL, 101);
+INSERT INTO Event
+VALUES (2, "path20", NULL, 101);
 
-INSERT INTO table_name
-VALUES (30, "path30", NULL, 100);
+INSERT INTO Event
+VALUES (3, "path30", NULL, 100);

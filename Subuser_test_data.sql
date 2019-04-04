@@ -9,5 +9,5 @@ CREATE TABLE SubUser
 );
 */
 
-INSERT INTO table_name
+INSERT INTO SubUser
 VALUES (100, 102);
