@@ -1,4 +1,4 @@
-Drop TABLE IF EXISTS FriendEvent, FriendImage, Friends, Event, SubUser, User, Device;
+/*Drop TABLE IF EXISTS FriendEvent, FriendImage, Friends, Event, SubUser, User, Device;*/
 
 CREATE TABLE Device
 (
@@ -35,6 +35,7 @@ CREATE TABLE Event
 	FilePath varchar(255),
 	Timesent datetime,
 	UserID int,
+	EventMessage VARCHAR(256),
 	PRIMARY KEY (EventID),
 	FOREIGN KEY (UserID) REFERENCES User(UserID)
 );
