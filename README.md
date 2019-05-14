@@ -22,7 +22,7 @@ Used to link user accounts for parent and sub users.
 
 ### Event:
 Holds the Event ID, the file path of the picture that was taken, the time the picture was taken, the user ID linked to the event, and the message that was sent to the user.
-Used to hold information about each event that occures.
+Used to hold information about each event that occurs.
 
 ### Friends
 Holds basic information about friend and user ID that is linked to it.
