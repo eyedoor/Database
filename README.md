@@ -4,7 +4,7 @@ MySQL database to hold and manage eyeDoor data.
 
 # ERD
 
-
+![alt text](https://github.com/eyedoor/Database/blob/master/ERD.PNG)
 
 # Tables
 
